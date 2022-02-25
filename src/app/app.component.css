@@ -1,0 +1,149 @@
+.main {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  height: 100vh;
+}
+
+.bannervdo {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /* opacity: 0.8; */
+  left: -25em;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  min-height: 100vh;
+  padding-right: 10vw;
+}
+
+.screen {
+  background-image: linear-gradient(
+    to bottom,
+    #7c78b8,
+    #5897d9,
+    #00b5ec,
+    #00d2ed,
+    #12ebdf
+  );
+  position: relative;
+  height: 500px;
+  width: 360px;
+  box-shadow: 0px 0px 24px #7c78b8;
+}
+
+.heading {
+  text-align: center;
+  padding-top: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.login {
+  width: 320px;
+  padding: 30px;
+  padding-top: 100px;
+}
+
+.login__field {
+  padding: 20px 0px;
+  position: relative;
+}
+
+.login__input {
+  box-shadow: 0px 2px 2px black;
+  border-radius: 10px;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: 0.2s;
+  background-color: white;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border: 3px solid black;
+}
+
+.login__submit {
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #4c489d !important;
+  box-shadow: 0px 2px 2px black;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+  border-color: #6a679e;
+  transform: scale(1.1);
+}
+
+.overlayText {
+  position: absolute;
+  top: 8%;
+  left: 30%;
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+  align-self: center;
+  font-size: 2em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+@media screen and (max-width: 500px) {
+  .bannervdo {
+    display: none;
+  }
+  .overlayText {
+    font-size: 1.2em;
+    top: 4%;
+    left: 10%;
+  }
+  .container {
+    justify-content: center;
+    padding: 0;
+  }
+  .dialog.p-dialog.p-component {
+    width: 90vw;
+  }
+}
+
+.card-class {
+  position: relative;
+  width: auto;
+}

@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/primeicons/primeicons.css';
+
+@import '~primeicons/primeicons.css';
+
+@import '../node_modules/primeng/resources/themes/bootstrap4-dark-purple/theme.css';
+
+
+.selected-lang {
+    cursor: pointer;
+}
+
+.selected-lang:before {
+    content: '';
+display: block;
+width: 32px;
+height: 30px;
+background-image: url(https://www.countryflags.io/us/flat/32.png);
+z-index: 99999999999999;
+}

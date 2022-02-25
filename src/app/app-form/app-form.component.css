@@ -1,0 +1,123 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+  padding-bottom: 10px;
+}
+
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: $gutter;
+  display: contents;
+}
+
+.currency::before {
+  display: block;
+}
+
+.agree {
+  font-style: italic;
+  font-weight: bold;
+  color: blue;
+  display: grid;
+}
+
+.submit {
+  font-weight: bold;
+  text-align: right;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .col-4 {
+    width: 48% !important;
+  }
+
+  .col-2 {
+    width: 48% !important;
+  }
+
+  .col-extra {
+    width: 3% !important;
+  }
+
+  ::ng-deep .iti__country-list {
+    width: 400% !important;
+    color: black;
+  }
+
+  ::ng-deep p-chips > .p-chips .p-chips-multiple-container {
+    width: 28vw !important;
+}
+}
+
+.col-4 {
+  flex: 0 0 auto;
+  padding: $gutter;
+  width: 30%;
+}
+
+.col-extra {
+  flex: 0 0 auto;
+  padding: $gutter;
+  width: 3%;
+  cursor: pointer;
+}
+
+.col-2 {
+  flex: 0 0 auto;
+  padding: $gutter;
+  width: 16.6667%;
+}
+
+.radioButtons {
+  width: 50%;
+  display: flex;
+}
+
+.label {
+  width: 155px;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.label::after {
+  content: "*";
+  color: red;
+}
+
+.label-non-mandat {
+  width: 155px;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.inputBox {
+  height: 28px;
+  width: 95%;
+}
+.inputBoxContact {
+  height: 28px;
+  width: 95%;
+  color: black !important;
+}
+
+::ng-deep p-calendar > span {
+  width: 98%;
+}
+
+::ng-deep .iti__country-list {
+  width: 500%;
+  color: black;
+}
+
+::ng-deep p-dropdown > .p-dropdown .p-hidden-accessible {
+  display: none;
+}
+
+::ng-deep p-chips > .p-chips .p-chips-multiple-container {
+    width: 14vw;
+}

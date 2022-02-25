@@ -1,0 +1,241 @@
+<p-dialog
+  [style]="{ width: dialogWidth }"
+  [(visible)]="loginSuccessfulAndShowForm"
+  [appendTo]="'body'"
+  [modal]="true"
+  [closable]="true"
+  header="DigitalChameleon Form"
+  minHeight="300px"
+  (onHide)="onClose()"
+>
+  <form [formGroup]="form">
+    <div class="grid">
+      <div class="col">
+        <div class="col-2">
+          <label class="label">Email</label>
+        </div>
+        <div class="col-4">
+          <input
+            type="email"
+            pInputText
+            formControlName="email"
+            class="inputBox"
+            (focus)="onFocus()"
+          />
+          <p-message
+            severity="error"
+            text="Email is required"
+            *ngIf="showErrorsIfInvalid && !form.value.email"
+          ></p-message>
+        </div>
+        <div class="col-extra"></div>
+        <div class="col">
+          <div class="col-2">
+            <label class="label">Contact No.</label>
+          </div>
+          <div class="col-4">
+            <input
+              type="tel"
+              placeholder=""
+              #telephone
+              class="inputBoxContact"
+              ng2TelInput
+              formControlName="contact"
+              (focus)="onFocus()"
+              [ng2TelInputOptions]="{ initialCountry: 'in' }"
+            />
+            <p-message
+              severity="error"
+              text="Contact is required"
+              *ngIf="showErrorsIfInvalid && !form.value.contact"
+            ></p-message>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col">
+        <div class="col-2">
+          <label class="label">Password</label>
+        </div>
+        <div class="col-4">
+          <input
+            type="password"
+            #password
+            pPassword
+            (focus)="onFocus()"
+            formControlName="password"
+            class="inputBox"
+          />
+          <p-message
+            severity="error"
+            text="Password is required"
+            *ngIf="showErrorsIfInvalid && !form.value.password"
+          ></p-message>
+        </div>
+        <div class="col-extra">
+          <i class="pi pi-eye" (click)="showPassword()" #icon></i>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-2">
+          <label class="label-non-mandat">Profile Picture</label>
+        </div>
+        <div class="col-4">
+          <input
+            type="file"
+            accept="image/*"
+            (focus)="onFocus()"
+            formControlName="profilePicture"
+            class="inputBox"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col">
+        <div class="col-2">
+          <label class="label">Confirm Password</label>
+        </div>
+        <div class="col-4">
+          <input
+            type="password"
+            pPassword
+            (focus)="onFocus()"
+            formControlName="confirmPassword"
+            class="inputBox"
+            (keyup)="validatePassword()"
+          />
+          <p-message
+            severity="error"
+            text="{{
+              showErrorsIfInvalid && !form.value.confirmPassword
+                ? 'Confirm Password is required'
+                : 'Password Mismatch'
+            }}"
+            *ngIf="
+              passwordMismatch || (showErrorsIfInvalid && !form.value.confirmPassword)
+            "
+          ></p-message>
+        </div>
+      </div>
+      <div class="col-extra"></div>
+      <div class="col">
+        <div class="col-2">
+          <label class="label">Gender</label>
+        </div>
+        <div class="col-4 radio">
+          <p-radioButton
+            name="gender"
+            class="radioButtons"
+            value="Male"
+            label="Male"
+            (focus)="onFocus()"
+            formControlName="gender"
+          ></p-radioButton>
+          <p-radioButton
+            name="gender"
+            value="Female"
+            class="radioButtons"
+            (focus)="onFocus()"
+            label="Female"
+            formControlName="gender"
+          ></p-radioButton>
+          <p-message
+            severity="error"
+            text="Gender is required"
+            *ngIf="showErrorsIfInvalid && !form.value.gender"
+          ></p-message>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col">
+        <div class="col-2">
+          <label class="label">DOB</label>
+        </div>
+        <div class="col-4">
+          <p-calendar
+            formControlName="dob"
+            [monthNavigator]="true"
+            [showIcon]="true"
+            appendTo="body"
+            (focus)="onFocus()"
+            [yearNavigator]="true"
+            yearRange="1900:2020"
+          ></p-calendar>
+          <p-message
+            severity="error"
+            text="DOB is required"
+            *ngIf="showErrorsIfInvalid && !form.value.dob"
+          ></p-message>
+        </div>
+      </div>
+      <div class="col-extra"></div>
+      <div class="col">
+        <div class="col-2">
+          <label class="label-non-mandat">Address</label>
+        </div>
+        <div class="col-4">
+          <textarea
+            rows="2"
+            (focus)="onFocus()"
+            cols="22"
+            pInputTextarea
+            formControlName="address"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col">
+        <div class="col-2">
+          <label class="label-non-mandat">Hobbies</label>
+        </div>
+        <div class="col-4">
+          <p-chips formControlName="hobbies" (focus)="onFocus()"></p-chips>
+        </div>
+      </div>
+      <div class="col-extra"></div>
+      <div class="col">
+        <div class="col-2">
+          <label class="label-non-mandat">Annual Income</label>
+        </div>
+        <div class="col-4 radio currency">
+          <p-dropdown
+            [options]="currencies"
+            (focus)="onFocus()"
+            appendTo="body"
+          ></p-dropdown>
+          <input
+            type="number"
+            formControlName="annualIncome"
+            style="width: 59%"
+          />
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="grid agree">
+      <p-checkbox
+        formControlName="agree"
+        [binary]="true"
+        (focus)="onFocus()"
+        label="I agree"
+      ></p-checkbox>
+      <label
+        style="color: red"
+        *ngIf="showErrorsIfInvalid && !form.value.agree"
+      >
+        Please check the box to proceed
+      </label>
+    </div>
+    <div class="grid" class="submit">
+      <p-button
+        label="Submit"
+        (onClick)="onSubmit()"
+        (focus)="onFocus()"
+      ></p-button>
+    </div>
+  </form>
+</p-dialog>
